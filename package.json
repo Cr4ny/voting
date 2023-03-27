@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --output-path docs --deploy-url /",
+    "build": "ng build --output-path docs --deploy-url /voting/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
