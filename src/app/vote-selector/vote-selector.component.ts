@@ -16,8 +16,8 @@ interface QuestionResponse {
   topic: string,
   title: string,
   message: string | {
-      "event": "question_event",
-      "questions" : string[]
+    "event": "question_event",
+    "questions" : string[]
   },
   tags: string[],
   attachment: {
@@ -96,11 +96,12 @@ export class VoteSelectorComponent implements OnInit{
     const voting : number[] = Array(this.questions.length).fill(0);
     voting[voteSelectionIndex] = 1;
     const message =  {
-        event: "poll_event",
-        question_id: this.questionId,
-        voting : voting,
-        participant : "biocarl" // TODO This you will retrieve from the frontend
-      };
+      event: "poll_event",
+      question_id: this.questionId,
+      voting : voting,
+      voteType: this.questions[0], //added by me
+      participant : "biocarl" // TODO This you will retrieve from the frontend
+    };
 
     const payload : PollingResultsPublish = {
       topic: this.groupName + "_poll_topic", // TODO Will eventually extracted from route root/:groupname
